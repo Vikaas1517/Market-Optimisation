@@ -1,45 +1,51 @@
+🛒 Market Basket Analysis using ECLAT & FP-Growth
 📌 Overview
 
-This project applies the ECLAT (Equivalence Class Transformation) algorithm to perform market basket analysis and uncover frequent itemsets from transactional data. The extracted patterns help businesses optimise product placement, cross-selling strategies, and inventory planning.
+This repository implements Market Basket Analysis using two efficient frequent pattern mining algorithms:
+ECLAT (Equivalence Class Transformation) and FP-Growth (Frequent Pattern Growth).
 
-Unlike Apriori, ECLAT uses a vertical data format, making it faster and more efficient for large datasets.
+The project focuses on discovering frequent itemsets from transactional datasets to support market optimisation, including product placement, cross-selling, promotions, and inventory management.
 
 🎯 Objectives
 
-Identify frequently purchased item combinations
+Discover frequently co-purchased items
 
-Improve market optimisation and decision-making
+Compare performance of ECLAT vs FP-Growth
 
-Reduce computational overhead compared to Apriori
+Improve market optimisation strategies
 
-Generate actionable insights from transaction data
+Reduce computational cost compared to Apriori
 
-🧠 Algorithm Used
-ECLAT (Equivalence Class Clustering and bottom-up Lattice Traversal)
+Extract actionable insights from large transaction datasets
 
-Uses TID (Transaction ID) sets
+🧠 Algorithms Used
+🔹 ECLAT (Equivalence Class Transformation)
 
-Computes support via set intersection
+Uses vertical data representation (TID sets)
+
+Support calculated via set intersection
+
+Depth-first search traversal
 
 Efficient for dense datasets
 
-Depth-first search strategy
+🔹 FP-Growth (Frequent Pattern Growth)
 
-📂 Project Structure
-ECLAT_in_Market-Optimisation/
-│
-├── data/
-│   └── transactions.csv
-│
-├── src/
-│   ├── eclat.py
-│   └── preprocessing.py
-│
-├── results/
-│   └── frequent_itemsets.csv
-│
-├── requirements.txt
-└── README.md
+Uses a compact FP-Tree structure
+
+Avoids candidate generation
+
+Faster than Apriori for large datasets
+
+Efficient for sparse and large-scale data
+
+📊 Algorithm Comparison
+Feature	ECLAT	FP-Growth
+Data Format	Vertical	Tree-based
+Candidate Gen	Yes (implicit)	No
+Memory Usage	Moderate	Efficient
+Best For	Dense data	Large datasets
+Speed	High	Very High
 
 🛠️ Technologies Used
 
@@ -51,60 +57,70 @@ NumPy
 
 itertools
 
+mlxtend (for FP-Growth, optional)
+
 ⚙️ Installation
-git clone https://github.com/your-username/ECLAT_in_Market-Optimisation.git
-cd ECLAT_in_Market-Optimisation
+git clone https://github.com/your-username/Market-Basket-Analysis.git
+cd Market-Basket-Analysis
 pip install -r requirements.txt
 
 ▶️ Usage
+Run ECLAT
 python src/eclat.py
 
+Run FP-Growth
+python src/fp_growth.py
 
-You can modify:
+
+You can configure:
 
 Minimum support threshold
 
 Input dataset
 
-Output format
+Output file format
 
-📊 Output
+📈 Output
 
 Frequent itemsets with support values
 
-Insights useful for:
+Comparative insights from both algorithms
+
+Useful for:
 
 Product bundling
 
-Shelf optimisation
+Shelf layout optimisation
 
-Promotional strategies
+Targeted promotions
+
+Recommendation systems
 
 🚀 Applications
 
 Retail & E-commerce analytics
 
-Recommendation systems
+Recommendation engines
 
 Customer behaviour analysis
 
-Inventory optimisation
+Inventory and demand optimisation
+
+Business intelligence systems
 
 📌 Future Enhancements
 
-Add association rule generation (confidence & lift)
+Association rule mining (confidence, lift, conviction)
 
-Integrate visual dashboards
+Visualisation dashboards
 
-Support real-time streaming data
+Real-time transaction streaming
 
-Compare with Apriori & FP-Growth
+Performance benchmarking on large datasets
+
+Integration with ML-based recommenders
 
 🤝 Contributing
 
 Contributions are welcome!
-Fork the repo, create a branch, and submit a pull request.
-
-📜 License
-
-This project is licensed under the MIT License.
+Feel free to fork the repository, improve the algorithms, and submit a pull request.
